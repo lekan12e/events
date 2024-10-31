@@ -6,7 +6,22 @@ import { connectToDatabase } from "@/lib/database";
 import Order from "../database/models/order.model";
 import User from "@/lib/database/models/user.model";
 import Event from "@/lib/database/models/event.model";
-import { CreateUserParams, UpdateUserParams } from "@/types/index";
+
+type UpdateUserParams = {
+  firstName: string;
+  lastName: string;
+  username: string;
+  photo: string;
+};
+
+type CreateUserParams = {
+  clerkId: string;
+  firstName: string;
+  lastName: string;
+  username: string;
+  email: string;
+  photo: string;
+};
 
 export const handleError = (error: unknown) => {
   console.error(error);
