@@ -6,7 +6,11 @@ import { connectToDatabase } from "@/lib/database";
 import Order from "../database/models/order.model";
 import User from "@/lib/database/models/user.model";
 import Event from "@/lib/database/models/event.model";
-import { handleError } from "@/lib/utils";
+
+export const handleError = (error: unknown) => {
+  console.error(error);
+  throw new Error(typeof error === "string" ? error : JSON.stringify(error));
+};
 
 import { CreateUserParams, UpdateUserParams } from "@/types";
 
